@@ -4,23 +4,168 @@
    <meta charset="utf-8">
    <title>Chapter 5</title>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="variables-palette-7.css" >   
-   <link rel="stylesheet" href="ch05-proj2.css" />
+   <link rel="stylesheet" href="variables-palette-7.css">   
+   <link rel="stylesheet" href="ch05-proj2-answers.css"/>
 </head>
 <body>
-<form >
+<form method="get" action="https://www.randyconnolly.com/tests/process.php">
 <fieldset>
    <legend>Advanced Art Work Search</legend>
    
     <div id="searchBox">
-     
-    </div>   
+      <input type="search" placeholder="Search Titles">
+      <label for="f-subject">Subject</label>
+      <input type="radio" id="f-subject" name="type" value="history"/>History
+      <input type="radio" id="f-subject" name="type" value="person"/>Person
+      <input type="radio" id="f-subject" name="type" value="landscape"/>Landscape
+      
+      <select name="filter">
+        <option selected value="0">Select Genre</option>
+        <option value="1">Baroque</option>
+        <option value="2">Renaissance</option>
+        <option value="3">Realism</option>
+      </select>
+      <button type="submit">Filter</button><br>
+    </div>  
+
+    <!-- For the settings  -->
     <div id="settingsBox">
-
-
+      <select name="actions">
+        <option selected value="0">Bulk Actions</option>
+        <option value="1">Archive</option>
+        <option value="2">Edit</option>
+        <option value="3">Delete</option>
+        <option value="4">Collection</option>
+      </select>
+        <button type="submit">Apply To All</button>
     </div>
-    <div id="paintingBox">
 
+    <!-- This is a table with the paintings and info about them -->
+    <div id="paintingBox">
+      <table id="paintings">
+      <!-- table header  -->
+      <thead>
+        <tr><legend>Paintings</legend></tr>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Title</th>
+          <th scope="col">Artist</th>
+          <th scope="col">Year</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <!-- body of the table  -->
+      <tbody>
+
+        <!-- row #1  -->
+        <tr>
+          <td><input type="checkbox" name index[0] value="#1"/></td>
+          <td><img src="125010.jpg" id="boxPhoto"></td>
+          <td>Portrait of Alida Christina Assink </td>
+          <td>Kruseman, Jan</td>
+          <td>1833</td>
+          <td>Realism</td>
+          <td>
+            <button type="button" id="edit">
+              <img src="edit.png">
+            </button>
+            <button type="button">
+              <img src="archive.png">
+            </button>
+            <button type="button">
+              <img src="delete.png">
+            </button>
+          </td>
+        </tr>
+
+        <!-- row #2  -->
+        <tr>
+          <td><input type="checkbox" name index[1] value="#2"/></td>
+          <td><img src="125020.jpg" id="boxPhoto"></td>
+          <td>Portrait of William II, King of the Netherlands</td>
+          <td>Kruseman, Jan</td>
+          <td>1839</td>
+          <td>Realism</td>
+          <td>
+            <button type="button" id="edit">
+              <img src="edit.png">
+            </button>
+            <button type="button">
+              <img src="archive.png">
+            </button>
+            <button type="button">
+              <img src="delete.png">
+            </button>
+          </td>
+        </tr>
+
+        <!-- row #3  -->
+        <tr>
+          <td><input type="checkbox" name index[2] value="#3"/></td>
+          <td><img src="127010.jpg" id="boxPhoto"></td>
+          <td>Three girls from the Amsterdam Orphanage</td>
+          <td>Schwartze, Therese</td>
+          <td>1885</td>
+          <td>Realism</td>
+          <td>
+            <button type="button" id="edit">
+              <img src="edit.png">
+            </button>
+            <button type="button">
+              <img src="archive.png">
+            </button>
+            <button type="button">
+              <img src="delete.png">
+            </button>
+          </td>
+        </tr>
+
+        <!-- row #4  -->
+        <tr>
+          <td><input type="checkbox" name index[3] value="#4"/></td>
+          <td><img src="128010.jpg" id="boxPhoto"></td>  
+          <td>The Windmill at Wijk bij Duurstede</td>  
+          <td>Ruisdael, Jacob van</td>
+          <td>1670</td>
+          <td>Dutch Golden Age</td>
+          <td>
+            <button type="button" id="edit">
+              <img src="edit.png">
+            </button>
+            <button type="button">
+              <img src="archive.png">
+            </button>
+            <button type="button">
+              <img src="delete.png">
+            </button>
+          </td>
+        </tr>
+
+        <!-- row #5  -->
+        <tr>
+          <td><input type="checkbox" name index[4] value="#5"/></td>
+          <td><img src="130020.jpg" id="boxPhoto"></td>  
+          <td>Morning Ride Along the Beach</td>  
+          <td>Mauve, Anton</td>
+          <td>1871</td>
+          <td>Realism</td>
+          <td>
+            <button type="button" id="edit">
+              <img src="edit.png">
+            </button>
+            <button type="button">
+              <img src="archive.png">
+            </button>
+            <button type="button">
+              <img src="delete.png">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      </table>
     </div> 
 </fieldset>  
 </form>

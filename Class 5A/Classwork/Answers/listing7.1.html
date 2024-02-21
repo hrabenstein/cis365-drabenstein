@@ -1,0 +1,28 @@
+<!-- Bootstrap 4 Approach -->
+<div class="container">
+  <div class="row">
+    <div class="col"><img src=1.gif /></div>
+    <div class="col"><img src=2.gif /></div>
+    <div class="col"><img src=3.gif /></div>
+  </div>
+  <div class="row">
+    <div class="col"><img src=4.gif /></div>
+    <div class="col"><img src=5.gif /></div>
+    <div class="col"><img src=6.gif /></div>
+  </div>
+</div>
+<!-- CSS Grid Approach -->
+<div class="container">
+  <img src=1.gif />
+  <img src=2.gif />
+  <img src=3.gif />
+  <img src=4.gif />
+  <img src=5.gif />
+  <img src=6.gif />
+</div>
+<!-- CSS for grid approach -->
+.container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr);
+}
+.container img { display: block; }
