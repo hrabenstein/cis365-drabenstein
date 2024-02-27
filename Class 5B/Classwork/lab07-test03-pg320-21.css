@@ -139,28 +139,36 @@ h3 {
 }
 
 /* add your media query here */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) 
+{
    :root{
       --base-font-size: 120%;
    }
+
    .container {
       grid-template-columns: 1fr;
       margin: var(--spacing-small);
    }
+
    .formImage {
       background-color: var(--color-neutral-050);
+      justify-content: flex-start;
    }
+
    .planType{
       padding: var(--spacing-med);
       width: 100%;
-      padding-left: var(--spacing-med);
+      padding-left: 2em;
    }
+
    .option{
       width: 90%;
    }
+
    .formData{
       padding: var(--spacing-med);
    }
+
    .formData form{
       margin-top: var(--spacing-small);
    }

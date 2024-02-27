@@ -111,6 +111,11 @@ img {
     transition-timing-function: ease-out;
 }
 
+.card:hover .card-actions{ 
+    opacity: 1; 
+    transition: opacity 1s; 
+}
+
 /* styles for mobile protrait screen
    add media query for screen and for a max-width of 480px */
 
