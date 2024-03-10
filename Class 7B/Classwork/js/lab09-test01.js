@@ -15,8 +15,8 @@ document.getElementByID('thumb-list').classList;
 
 
 const images = document.querySelectorAll('#thumb-list img');
-for(let image of images)
-{
+
+for(let img of images) {
    img.style.boxShadow = "6px 5px 20px 1px rgba(0,0,0,0.22)";
 }
 
