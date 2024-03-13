@@ -10,7 +10,7 @@ for (let ph of photos) {
    figure.appendChild( createCaption(ph) );
 
    parent.appendChild(figure);
-   
+
    parent.appendChild(createButton());
    console.log("created button");
 }
@@ -18,7 +18,7 @@ for (let ph of photos) {
 //create image and set its attributes.
 function createImage(photo)
 {
-   let image =  document.createElement('img');
+   let image =  document.createElement('img'); //created <img> tag
    image.setAttribute('src','image/'+ photo.filename);
    image.setAttribute('alt', photo.title);
    return image;
@@ -60,15 +60,14 @@ function createParagraph(photo) {
 function createButton()
    {
       let b = document.createElement('button');
-      b.textContent = 'Click Me';
+      b.textContent = "Click Me";
       b.id = "btn";
       return b;
    }
 
-document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
       //version 1
    const btn = document.getElementsByTagName("button");
-   console.log(btn);
    btn[0].addEventListener("click", function()
    {
       console.log("used an anonymous function");
@@ -78,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
    document.querySelector("button").addEventListener("click",function(e)
    {
       console.log(e.target.textContent);
-      console.log(e.target);
+      console.log(e);
       console.log("a different approach, but same result");
    });
-})
+});
 
 
 
