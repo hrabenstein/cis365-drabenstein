@@ -68,18 +68,41 @@ function createButton()
    document.addEventListener('DOMContentLoaded', function() {
       //version 1
    const btn = document.getElementsByTagName("button");
-   btn[0].addEventListener("click", function()
+   btn[0].addEventListener("click", function(e)
    {
+      e.stopPropagation();
       console.log("used an anonymous function");
    });
 
       //version 2
    document.querySelector("button").addEventListener("click",function(e)
    {
+      e.stopPropagation();
       console.log(e.target.textContent);
       console.log(e);
       console.log("a different approach, but same result");
    });
+
+   function logParent(e){
+      console.log("the parent was clicked!");
+      console.log(e.target); //the target will be whichever element you click on
+      if(e.target && e.target.nodeName == IMG)
+      {
+         console.log("The image was clicked!");
+         console.log(e.target);
+      }
+
+      if (e.target && e.target.nodeName == "BUTTON") 
+      {
+         console.log("The child button was clicked!")
+      }
+   }
+
+   document.getElementById("parent").addEventListener("click",logParent);
+
+   
+
+
 });
 
 
