@@ -111,13 +111,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
          return colorRow;
          
-         
-         
-
-
-         //rest of the code here
-         //getting the id and the scheme of the button you pressed, then making the color box, etc
-         //make sure the button has set-attribute
       }
    });
 }
