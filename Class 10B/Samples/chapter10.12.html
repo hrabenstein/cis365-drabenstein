@@ -1,0 +1,31 @@
+<h2>Examine console for timings</h2>
+<button id="fromAPI">Load from API</button>
+<button id="fromLocal">Load from localStorage</button>
+<button id="removeLocal">Remove from localStorage</button>
+<script>
+  document.querySelector("#fromAPI").addEventListener('click', async () => {
+      const domain = "http://www.randyconnolly.com/funwebdev/3rd/api/movie";
+      const url = domain + "/movies-brief.php?id=ALL";
+      let t0 = performance.now();
+      const response = await fetch(url);
+      const movies = await response.json();
+      let t1 = performance.now();
+      // save the data as a JSON string
+      localStorage.setItem('movies', JSON.stringify(movies));
+      // outputs 1124 milliseconds
+      console.log("fetching movies from API took " +
+		  (t1 - t0) + " milliseconds.")
+  });
+  document.querySelector("#fromLocal").addEventListener('click', () => {
+      let t0 = performance.now();
+      // retrieve JSON string and turn into array
+      const movies = JSON.parse(localStorage.getItem('movies'))
+      let t1 = performance.now();
+      // outputs 3 milliseconds
+      console.log("fetching movies from localStorage took " +
+		  (t1 - t0) + " milliseconds.")
+  });
+  document.querySelector("#removeLocal").addEventListener('click', () => {
+      localStorage.removeItem('movies');
+  });
+</script>
