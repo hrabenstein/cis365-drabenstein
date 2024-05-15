@@ -62,11 +62,14 @@ document.addEventListener("DOMContentLoaded", function() {
    function populateSelect(data, select, sortField, valueField, textField){
       //we want to pop the select in a generic way
       const sorted = data.sort((a,b) => a[sortField] < b[sortField] ? -1 : 1 );
+      //must use [] and not dot notation so you can pass in a string
+
       sorted.forEach(d => {
          const opt = document.createElement('option');
-         opt.setAttribute('value', d[valueField]);
+         opt.setAttribute('value', d[valueField]); //need to tell it which field to use to set the value
+         // (in the hw we will be setting the id of the button)
          opt.textContent = d[textField];
-         select.appendChild(opt);  
+         select.appendChild(opt);  //appending the element to the parent element after it is created
       });
 
       select.addEventListener('input', loadPhotos);

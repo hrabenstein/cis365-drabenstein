@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
          main.style.display = "none"; //main is not yet showing
          loader1.style.display= "block";
 
-         fetch(countryAPI)
+         fetch(countryAPI)//need the .then when you do a fetch
             .then(resp => resp.json()) //whatever this does returns to the next 'then'
             .then(countries => {
                main.style.display = "block";
                loader1.style.display = "none";
 
-               select.innerHTML = ""; //in case someone repeatedly clocks the button
+               select.innerHTML = ""; //in case someone repeatedly clicks the button
                select.appendChild(createOption("Select a country",""));
                countries.forEach(c => {
                   select.appendChild(createOption(c.name, c.iso)); 
@@ -81,6 +81,5 @@ document.addEventListener("DOMContentLoaded", function() {
             })
          })
    }
-
 
 });

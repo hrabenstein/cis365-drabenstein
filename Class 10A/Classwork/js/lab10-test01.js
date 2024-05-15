@@ -10,11 +10,14 @@ const stocks = [
 
  // #1 Add a new function property named total() to each stock object
 
-/*  for (let i=0; i<stocks.length; i++) {
+for (let i=0; i<stocks.length; i++) {
    stocks[i].total = function () { 
      return this.price * this.units ;
     };
- } */
+   }
+
+stocks.forEach(s => {console.log(s.total())});
+   
 
 
  // #2 - Find the first element whose symbol name is "CAT" (using loop then find)
@@ -30,8 +33,10 @@ const newArray = stocks.filter(s => s.price > 0 && s.price < 20);
 console.log(newArray);
 
  // #4 - Create a new array of strings with <li> elements containing the stock name property (using loop then map)
-
+const list2 = stocks.map(s => '<li>'+s.name+'</li>');
+console.log(list2);
 
 
 
  // #5 - Sort the array of stocks on symbol
+const sorted = stocks.sort(a,b) => a.symbol < b.symbol
