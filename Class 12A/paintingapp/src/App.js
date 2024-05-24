@@ -1,6 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import Header from './components/header.js'
+import PaintingListItem from './components/paintingListItem.js'
+import PaintingList from './components/paintingList.js'
+import EditPaintingForm from './components/editPaintingForm.js'
+
 
 function App() {
   //later you will learn how to fetch this data from an API 
@@ -51,49 +56,6 @@ function App() {
  );
     
 }
-
-const Header = (props) => {
- return (
-    <header>
-    <h1>Test Your Knowledge #1</h1>
-    <button onClick={props.undo}>Undo Edits</button>
-    </header>);
-}
-
-const PaintingListItem = (props) => {
- //const {painting,change} = props;
- const handleSelect = (e) => {
-    console.log(e);
-    props.change(props.painting); //implemented
- };
- return (<div className="row invert" onClick = {handleSelect}>
-    <img src={"paintings/square/" + props.painting.id + ".jpg"} alt={props.painting.title} />
-    <h3>{props.painting.title}</h3>
-    <p>{props.painting.artist}</p>
-    <p>{props.painting.year}</p>
- </div>);
-}
-
-const PaintingList  = (props) => {
- console.log(props);
- return (
-    <section className="paintingList">
-       {props.paintings.map(p => <PaintingListItem painting = {p} key = {p.id} change = {props.change}/> )}
- </section>);
-}
-
-const EditPaintingForm = (props) => {
- const handleChange = (e) => {
-    console.log(e);
-    //create a new painting to return back
-    //get tha name and value of form element that called this handler
-    const mofifiedPainting = {...props.componentCurrentPainting}; //making a shallow copy of current painting
-    const {name,value} = e.target; //same as e.target.name
-    //use bracket notation to update the entire property
-    mofifiedPainting[name] = value;
-    //tell the parent to update the paintingList with this new object
-    props.update(mofifiedPainting);
- };
 
  return (
  <section className="paintingForm">
