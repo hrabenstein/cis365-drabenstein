@@ -42,7 +42,7 @@ app.get('/iso/:substring',(req,resp) => {
     const isoToFind = req.params.substring.toUpperCase();
     const matches = photos.filter(obj => isoToFind == obj.iso);
     resp.json(matches);
-})
+});
 
 //IMPORTANT
 //use express to listen to port

@@ -38,34 +38,36 @@ const App = () => {
    };
 
    const handleUpdatePainting = (mofifiedPainting) => {
-      //copy the list
+      //copy the list so that when it's reset, the original list still exists
       const updatedList = [...paintings];
       //find the painting index
       const index = updatedList.findIndex(p => p.id == mofifiedPainting.id);
-      //replace the painting
+      //replace the painting with the passed in modified painting
       updatedList[index] = mofifiedPainting;
       //update state!
-      setPaintings(updatedList); //updates painting list
-      setCurrentPainting(mofifiedPainting); //updates painting state
+      setPaintings(updatedList); //updates painting list from 'data' to 'updatedList'
+      setCurrentPainting(mofifiedPainting); //updates painting state from data[0] to modified painting (that was passed in) 
 
    };
 
    const handleReset = () => {
-      const restoredList = [...data];
-      setPaintings(restoredList);
+      const restoredList = [...data]; //make a copy of the data into a new variable known as 'restoredList'
+      setPaintings(restoredList); //now pass in restoredList into setPaintings
    }
 
-   return (
+   return ( //from the app
+      //jsx syntax className
       <article className="app">
-         <Header undo={handleReset}/>
+         //handing in props 'undo'
+         <Header undo={handleReset}/> 
          <div className="box">
-            <PaintingList paintings = {paintings} change={handleChange}/>
-            <EditPaintingForm componentCurrentPainting = {currentPainting} update = {handleUpdatePainting}/>
+            <PaintingList paintings={paintings} change={handleChange}/>
+            <EditPaintingForm componentCurrentPainting={currentPainting} update={handleUpdatePainting}/>
          </div>
       </article>
    );
       
-}
+}//end app
 
 const Header = (props) => {
    return (
@@ -99,7 +101,7 @@ const PaintingList  = (props) => {
 
 const EditPaintingForm = (props) => {
    const handleChange = (e) => {
-      console.log(e);
+      console.log("This is 'e':"+ e);
       //create a new painting to return back
       //get tha name and value of form element that called this handler
       const mofifiedPainting = {...props.componentCurrentPainting}; //making a shallow copy of current painting

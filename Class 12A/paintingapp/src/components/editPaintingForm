@@ -1,0 +1,14 @@
+const EditPaintingForm = (props) => {
+ const handleChange = (e) => {
+    console.log(e);
+    //create a new painting to return back
+    //get tha name and value of form element that called this handler
+    const mofifiedPainting = {...props.componentCurrentPainting}; //making a shallow copy of current painting
+    const {name,value} = e.target; //same as e.target.name
+    //use bracket notation to update the entire property
+    mofifiedPainting[name] = value;
+    //tell the parent to update the paintingList with this new object
+    props.update(mofifiedPainting);
+ }}
+
+ export default EditPaintingForm; 
